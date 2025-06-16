@@ -63,3 +63,8 @@ class Super(models.Model):
         help_text='enter 6 digit pin',)
     profile_image = models.ImageField(upload_to='profileimg',blank=True)
     file = models.FileField(upload_to='doc',blank=True)
+
+
+
+    def __str__(self):
+        return self.name

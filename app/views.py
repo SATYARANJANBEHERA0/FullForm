@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Super
 from .forms import SuperForm
 
@@ -7,12 +7,13 @@ from .forms import SuperForm
 
 
 def ShowForm(request):
+    cus = Super.objects.all()
     if request.method == 'POST':
-        form = SuperForm(request.POST)
+        form = SuperForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
-            return render(request, 'app/success.html')  # or redirect
+            return redirect('/')  # or redirect
     else:
         form = SuperForm()
-    return render(request, 'app/base.html', {'form': form})
+    return render(request, 'app/home.html', {'form': form,'cus':cus})
 

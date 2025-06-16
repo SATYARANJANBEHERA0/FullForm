@@ -1,0 +1,115 @@
+{ {% extends "app/base.html" %}}
+
+{% block left-content %} 
+<form action="" method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">{{error}}</p>
+        {% endfor %}
+    {% endif %}
+    <label for="{{form.name.id_for_label}}" class="form-label">{{ form.name.label }}</label>
+    {% comment %} {{ form.as_p }} {% endcomment %}
+     {{form.name}}
+
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.email.id_for_label}}" class="form-label">{{ form.email.label }}</label>
+         {{form.email}}
+    </div>
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.gender.id_for_label}}" class="form-label">{{ form.gender.label }}</label>
+        {{form.gender}}
+    </div>
+    
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.mobile.id_for_label}}" class="form-label">{{ form.mobile.label }}</label>
+        {{form.mobile}}
+    </div>
+
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.dob.id_for_label}}" class="form-label">{{ form.dob.label }}</label>
+        {{form.dob}}
+    </div>
+
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.state.id_for_label}}" class="form-label">{{ form.state.label }}</label>
+        {{form.state}}
+    </div>
+
+
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.city.id_for_label}}" class="form-label">{{ form.city.label }}</label>
+        {{form.city}}
+    </div>
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.pin.id_for_label}}" class="form-label">{{ form.pin.label }}</label>
+        {{form.pin}}
+    </div>
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.profile_image.id_for_label}}" class="form-label">{{ form.profile_image.label }}</label>
+        {{form.profile_image}}
+    </div>
+
+    <div>
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+        {% endif %}
+        <label for="{{form.file.id_for_label}}" class="form-label">{{ form.file.label }}</label>
+        {{form.file}}
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form> 
+{% endblock left-content%}
+
+{% block right-content %}
+
+<h1>list of Submited form</h1>
+
+{% for i in cus%}
+ <p> {{i.id}}:{{i.name}} </p>
+{% endfor %}
+
+{% endblock right-content%}
